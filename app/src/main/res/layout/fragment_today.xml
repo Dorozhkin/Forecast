@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/todayConstraint"
+    android:visibility="invisible"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/currentTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/todayDnem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dnem"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/currentTime" />
+
+    <TextView
+        android:id="@+id/todayDnemValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintTop_toBottomOf="@id/currentTime"
+        app:layout_constraintLeft_toRightOf="@id/todayDnem" />
+
+    <TextView
+        android:id="@+id/bullet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bullet"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toRightOf="@id/todayDnemValue"
+        app:layout_constraintTop_toBottomOf="@id/currentTime" />
+
+    <TextView
+        android:id="@+id/todayNoch_u"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/noch_u"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toRightOf="@id/bullet"
+        app:layout_constraintTop_toBottomOf="@id/currentTime" />
+
+    <TextView
+        android:id="@+id/todayNoch_uValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toRightOf="@id/todayNoch_u"
+        app:layout_constraintTop_toBottomOf="@id/currentTime" />
+
+    <TextView
+        android:id="@+id/currentGradus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="70sp"
+        android:typeface="serif"
+        android:layout_marginStart="20dp"
+
+        android:textColor="@color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/todayDnem" />
+
+    <TextView
+        android:id="@+id/celsius"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/celsius"
+        android:textSize="30sp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/white"
+        app:layout_constraintLeft_toRightOf="@id/currentGradus"
+        app:layout_constraintTop_toBottomOf="@id/todayNoch_u" />
+
+    <TextView
+        android:id="@+id/currentFeelsLike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/currentGradus" />
+
+    <ImageView
+        android:id="@+id/todayIcon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toTopOf="@id/currentDescription"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/currentDescription"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginEnd="25dp"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintTop_toTopOf="@id/currentFeelsLike"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/todayLinear"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        >
+    <TextView
+        android:id="@+id/Umbrella"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/umbrella"
+        android:textColor="@color/white"
+        android:layout_marginEnd="5dp"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/todayProbability"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/probability"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:minHeight="30dp"
+
+        android:gravity="bottom"
+         />
+
+    <TextView
+        android:id="@+id/todayProbabilityValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10%"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+
+        android:layout_marginStart="5dp"/>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/todayRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toTopOf="@id/todayLinear"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
