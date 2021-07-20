@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal">
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+
+        >
+
+        <include layout="@layout/placeholder_today" />
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/todayConstraint"
     android:visibility="invisible"
     android:layout_width="match_parent"
@@ -19,7 +35,7 @@
         />
 
     <TextView
-        android:id="@+id/todayDnem"
+        android:id="@+id/day"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/dnem"
@@ -31,7 +47,7 @@
         app:layout_constraintTop_toBottomOf="@id/currentTime" />
 
     <TextView
-        android:id="@+id/todayDnemValue"
+        android:id="@+id/dayTemp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -39,7 +55,7 @@
         android:textColor="@color/white"
         android:textSize="15sp"
         app:layout_constraintTop_toBottomOf="@id/currentTime"
-        app:layout_constraintLeft_toRightOf="@id/todayDnem" />
+        app:layout_constraintLeft_toRightOf="@id/day" />
 
     <TextView
         android:id="@+id/bullet"
@@ -51,11 +67,11 @@
         android:layout_marginTop="10dp"
         android:textColor="@color/white"
         android:textSize="15sp"
-        app:layout_constraintLeft_toRightOf="@id/todayDnemValue"
+        app:layout_constraintLeft_toRightOf="@id/dayTemp"
         app:layout_constraintTop_toBottomOf="@id/currentTime" />
 
     <TextView
-        android:id="@+id/todayNoch_u"
+        android:id="@+id/night"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/noch_u"
@@ -68,7 +84,7 @@
         app:layout_constraintTop_toBottomOf="@id/currentTime" />
 
     <TextView
-        android:id="@+id/todayNoch_uValue"
+        android:id="@+id/nightTemp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -76,11 +92,11 @@
         android:layout_marginTop="10dp"
         android:textColor="@color/white"
         android:textSize="15sp"
-        app:layout_constraintLeft_toRightOf="@id/todayNoch_u"
+        app:layout_constraintLeft_toRightOf="@id/night"
         app:layout_constraintTop_toBottomOf="@id/currentTime" />
 
     <TextView
-        android:id="@+id/currentGradus"
+        android:id="@+id/currentTemp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="70sp"
@@ -89,7 +105,7 @@
 
         android:textColor="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/todayDnem" />
+        app:layout_constraintTop_toBottomOf="@id/day" />
 
     <TextView
         android:id="@+id/celsius"
@@ -99,8 +115,8 @@
         android:textSize="30sp"
         android:layout_marginTop="5dp"
         android:textColor="@color/white"
-        app:layout_constraintLeft_toRightOf="@id/currentGradus"
-        app:layout_constraintTop_toBottomOf="@id/todayNoch_u" />
+        app:layout_constraintLeft_toRightOf="@id/currentTemp"
+        app:layout_constraintTop_toBottomOf="@id/night" />
 
     <TextView
         android:id="@+id/currentFeelsLike"
@@ -110,19 +126,19 @@
         android:textColor="@color/white"
         android:textSize="15sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/currentGradus" />
+        app:layout_constraintTop_toBottomOf="@id/currentTemp" />
 
     <ImageView
-        android:id="@+id/todayIcon"
+        android:id="@+id/icon"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginEnd="35dp"
         android:layout_marginBottom="5dp"
-        app:layout_constraintBottom_toTopOf="@id/currentDescription"
+        app:layout_constraintBottom_toTopOf="@id/description"
         app:layout_constraintRight_toRightOf="parent" />
 
     <TextView
-        android:id="@+id/currentDescription"
+        android:id="@+id/description"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:textAlignment="center"
@@ -154,7 +170,7 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/todayProbability"
+        android:id="@+id/probability"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/probability"
@@ -166,7 +182,7 @@
          />
 
     <TextView
-        android:id="@+id/todayProbabilityValue"
+        android:id="@+id/probabilityValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="10%"
@@ -185,3 +201,4 @@
         app:layout_constraintLeft_toLeftOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>

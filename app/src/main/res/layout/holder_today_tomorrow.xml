@@ -7,7 +7,7 @@
     android:layout_height="200dp" >
 
     <TextView
-        android:id="@+id/gradus"
+        android:id="@+id/temp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
@@ -16,18 +16,18 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
 
-  <!--  <com.example.weather.fragments.CustomView
-        android:id="@+id/myDiagram"
+    <com.example.forecast.ui.CustomImageView
+        android:id="@+id/line"
         android:layout_width="56dp"
         android:layout_height="200dp"
         android:minHeight="200dp"
         android:minWidth="56dp"
 
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />-->
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/hourTime"
+        android:id="@+id/hour"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/black"

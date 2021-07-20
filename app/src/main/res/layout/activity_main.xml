@@ -11,28 +11,35 @@
    <LinearLayout
        android:id="@+id/linear"
        android:orientation="vertical"
-       android:background="@color/orange"
+       android:background="@color/defaultBackground"
        android:layout_width="match_parent"
        android:layout_height="match_parent" >
 
-       <androidx.fragment.app.FragmentContainerView
-           android:id="@+id/fragmentWithSearch"
+       <com.paulrybitskyi.persistentsearchview.PersistentSearchView
+           android:id="@+id/persistentSearchView"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
-           android:minHeight="50dp"
-           android:name="com.example.weather.fragments.search.SearchFragment"
-           android:layout_weight="0"
-           app:layout_constraintTop_toTopOf="parent"
-           app:layout_constraintLeft_toLeftOf="parent" />
+           android:paddingTop="4dp"
+           android:paddingLeft="4dp"
+           android:paddingStart="4dp"
+           android:paddingRight="4dp"
+           android:paddingEnd="4dp"
+           android:layout_margin="0dp"
+           app:leftButtonDrawable="@drawable/location"
+           app:queryInputHint="@string/hint"
+           app:queryInputTextColor="@color/black"/>
+
+
 
      <com.google.android.material.tabs.TabLayout
          android:id="@+id/tabs"
-         android:background="@color/orange"
          app:tabSelectedTextColor="@color/white"
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
          android:layout_weight="0"
+         android:background="@color/defaultBackground"
          app:tabIndicatorColor="@color/white"
+         app:tabTextAppearance="@style/TabStyle"
          />
 
        <androidx.viewpager2.widget.ViewPager2
@@ -42,7 +49,9 @@
            android:layout_weight="1"
            />
 
+
 </LinearLayout>
+
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 

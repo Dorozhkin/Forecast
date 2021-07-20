@@ -1,10 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal">
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        >
+
+        <include layout="@layout/placeholder_tomorrow" />
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/tomorrowConstraint"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:visibility="invisible"
     >
 
     <TextView
@@ -19,7 +35,7 @@
         />
 
     <TextView
-        android:id="@+id/tomorrowDnem"
+        android:id="@+id/day"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/dnem"
@@ -31,7 +47,7 @@
         app:layout_constraintTop_toBottomOf="@id/currentTime" />
 
     <TextView
-        android:id="@+id/tomorrowDnemValue"
+        android:id="@+id/dayTemp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -39,7 +55,7 @@
         android:textColor="@color/white"
         android:textSize="15sp"
         app:layout_constraintTop_toBottomOf="@id/currentTime"
-        app:layout_constraintLeft_toRightOf="@id/tomorrowDnem" />
+        app:layout_constraintLeft_toRightOf="@id/day" />
 
     <TextView
         android:id="@+id/bullet"
@@ -51,11 +67,11 @@
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
         android:layout_marginTop="10dp"
-        app:layout_constraintLeft_toRightOf="@id/tomorrowDnemValue"
+        app:layout_constraintLeft_toRightOf="@id/dayTemp"
         app:layout_constraintTop_toBottomOf="@id/currentTime" />
 
     <TextView
-        android:id="@+id/tomorrowNoch_u"
+        android:id="@+id/night"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/noch_u"
@@ -68,7 +84,7 @@
         app:layout_constraintTop_toBottomOf="@id/currentTime" />
 
     <TextView
-        android:id="@+id/tomorrowNoch_uValue"
+        android:id="@+id/nightTemp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
@@ -76,23 +92,23 @@
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
         android:layout_marginTop="10dp"
-        app:layout_constraintLeft_toRightOf="@id/tomorrowNoch_u"
+        app:layout_constraintLeft_toRightOf="@id/night"
         app:layout_constraintTop_toBottomOf="@id/currentTime" />
 
 
     <TextView
-        android:id="@+id/tomorrowDescription"
+        android:id="@+id/description"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:textSize="22sp"
         android:textAlignment="textStart"
         android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/tomorrowDnem"
+        app:layout_constraintTop_toBottomOf="@id/day"
         app:layout_constraintLeft_toLeftOf="parent" />
 
     <ImageView
-        android:id="@+id/tomorrowIcon"
+        android:id="@+id/icon"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginEnd="20dp"
@@ -120,7 +136,7 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/tomorrowProbability"
+            android:id="@+id/probability"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/probability"
@@ -131,7 +147,7 @@
             />
 
         <TextView
-            android:id="@+id/tomorrowProbabilityValue"
+            android:id="@+id/probabilityValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="10%"
@@ -150,3 +166,4 @@
         app:layout_constraintLeft_toLeftOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

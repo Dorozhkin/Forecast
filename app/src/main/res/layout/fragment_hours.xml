@@ -6,13 +6,45 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     tools:context=".ui.MainActivity"
+    android:background="@color/white"
     >
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" >
+
+            <include layout="@layout/placeholder_hours" />
+            <include layout="@layout/placeholder_hours" />
+            <include layout="@layout/placeholder_hours" />
+            <include layout="@layout/placeholder_hours" />
+            <include layout="@layout/placeholder_hours" />
+            <include layout="@layout/placeholder_hours" />
+            <include layout="@layout/placeholder_hours" />
+            <include layout="@layout/placeholder_hours" />
+            <include layout="@layout/placeholder_hours" />
+            <include layout="@layout/placeholder_hours" />
+            <include layout="@layout/placeholder_hours" />
+        </LinearLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/forHours"
+        android:visibility="invisible"
+        android:background="@color/defaultBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

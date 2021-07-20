@@ -10,7 +10,7 @@
     <color name="yellow">#DFAA09</color>
     <color name="darkGrey">#a9a9a9</color>
 
-    <color name="forHours">#83a5b3</color>
+    <color name="defaultBackground">#83a5b3</color>
     <color name="clear">#2b88e7</color>
     <color name="night">#804efd</color>
     <color name="atmosphere">#b9abaa</color>
@@ -20,4 +20,6 @@
     <color name="snow">#d4dae6</color>
     <color name="drizzle">#899cab</color>
     <color name="orange">#FFA500</color>
+
+    <color name="shimmer">#dddddd</color>
 </resources>
