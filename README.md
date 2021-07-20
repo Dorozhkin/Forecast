@@ -3,6 +3,7 @@
 Мой учебный проект. APK доступно в релизе.
 
 Использованные технологии: <br />
+• API сайта https://openweathermap.org/  <br />
 • Kotlin <br />
 • MVVM <br />
 • Retrofit <br />
