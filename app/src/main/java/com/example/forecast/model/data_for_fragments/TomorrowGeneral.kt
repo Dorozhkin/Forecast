@@ -4,7 +4,7 @@ data class TomorrowGeneral (
         val timestamp: String,
         val dayTemp: String,
         val nightTemp: String,
-        val icon: String,
+        val icon: Int,
         val description: String,
         val probability: String,
         val color: Int

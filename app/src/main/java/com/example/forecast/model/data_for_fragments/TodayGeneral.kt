@@ -6,7 +6,7 @@ data class TodayGeneral (
         val nightTemp: String,
         val currentTemp: String,
         val feelsTemp: String,
-        val icon: String,
+        val icon: Int,
         val description: String,
         val probability: String,
         val color: Int

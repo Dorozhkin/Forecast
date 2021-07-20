@@ -5,7 +5,7 @@ import com.example.forecast.model.database.MultipleTypeConverter
 
 @Entity
 @TypeConverters(MultipleTypeConverter::class)
-data class MainPojoClass (
+data class Forecast (
 
         //val lat : Double,
         //val lon : Double,

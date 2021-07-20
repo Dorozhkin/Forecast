@@ -4,6 +4,8 @@ import android.content.Context
 import com.example.forecast.model.database.MainPojoClassDao
 import com.example.forecast.model.repository.WeatherRepository
 import com.example.forecast.model.retrofit.RetrofitInterface
+import com.example.forecast.model.suggestions.SuggestionsSource
+import com.example.forecast.util.GeoUtil
 import com.example.forecast.viewmodels.ViewModelFactory
 import dagger.BindsInstance
 import dagger.Component
@@ -18,6 +20,8 @@ interface AppComponent {
     fun getMainPojoClassDao(): MainPojoClassDao
     fun getRetrofitInterface(): RetrofitInterface
     fun getWeatherRepository(): WeatherRepository
+    fun getGeoUtil(): GeoUtil
+    fun getSuggestionsSource(): SuggestionsSource
 
     @Component.Builder
     interface CustomBuilder {

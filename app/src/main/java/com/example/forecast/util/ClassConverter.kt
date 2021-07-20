@@ -42,7 +42,7 @@ object ClassConverter {
         for (i in firstIndex..lastIndex) {
             val item = entireList[i]
             val timestamp = DiagramUtil.getHour(item.dt, timezoneOffset).toString() + COLON + ZEROS
-            val temp = item.temp.toInt().toString()
+            val temp = item.temp.toInt().toString() + GRADUS_SIGN
             val centerMargin = DiagramUtil.getCenterMarginTop(item.temp.toInt(), maxTempInDiagrams, delta)
             val tempStampMargin = DiagramUtil.getTempStampMargin(centerMargin)
 
@@ -84,7 +84,7 @@ object ClassConverter {
         for (i in 0..lastIndex) {
             val item = entireList[i]
             val timestamp = DiagramUtil.getHour(item.dt, timezoneOffset).toString() + COLON + ZEROS
-            val temp = item.temp.toInt().toString()
+            val temp = item.temp.toInt().toString() + GRADUS_SIGN
             val centerMargin = DiagramUtil.getCenterMarginTop(item.temp.toInt(), maxTempInDiagrams, delta)
             val tempStampMargin = DiagramUtil.getTempStampMargin(centerMargin)
 
@@ -139,7 +139,7 @@ object ClassConverter {
             val description = desc.substring(0,1).toUpperCase() + desc.substring(1)
             val pop = (item.pop*100).toInt()
             val probability =  if (pop == 0) "" else pop.toString() + PERCENT_SIGN
-            val icon = item.weather[0].icon
+            val icon = chooseHoursIcon(item.weather[0].icon)
             val temp = item.temp.toInt().toString() + BIG_GRADUS
             val feelsTemp = item.feels_like.toInt().toString() + BIG_GRADUS
             val wind = item.wind_speed.toInt().toString() + WIND_SIGN
@@ -169,7 +169,9 @@ object ClassConverter {
         val nightTemp = today.temp.night.roundToInt().toString() + GRADUS_SIGN
         val currentTemp = current.temp.roundToInt().toString()
         val feelsTemp = FEELS + current.feels_like.roundToInt().toString() + GRADUS_SIGN
-        val icon = current.weather[0].icon
+
+        val icon = chooseWhiteIcon(current.weather[0].icon)
+
         val desc = current.weather[0].description
         val description = desc.substring(0, 1).toUpperCase() + desc.substring(1)
         val probability  = (today.pop * 100).toString().replace("^0[.]".toRegex(), "").replace("[.][0-9]+".toRegex(), "") + PERCENT_SIGN
@@ -187,7 +189,9 @@ object ClassConverter {
         val timestamp = tomorrowTimestampCreator(timezoneOffset, tomorrow.dt)
         val dayTemp = tomorrow.temp.day.roundToInt().toString() + GRADUS_SIGN
         val nightTemp = tomorrow.temp.night.roundToInt().toString() + GRADUS_SIGN
-        val icon = tomorrow.weather[0].icon
+
+        val icon = chooseWhiteIcon(tomorrow.weather[0].icon)
+
         val desc = tomorrow.weather[0].description
         val description = desc.substring(0, 1).toUpperCase() + desc.substring(1)
         val probability  = (tomorrow.pop * 100).toString().replace("^0[.]".toRegex(), "").replace("[.][0-9]+".toRegex(), "") + PERCENT_SIGN
@@ -198,22 +202,69 @@ object ClassConverter {
         return TomorrowGeneral(timestamp, dayTemp, nightTemp, icon, description, probability, color)
     }
 
+    private fun chooseHoursIcon(icon: String): Int {
+        var answer = 0
+        when (icon) {
+            "01d" -> answer = R.drawable.p01d
+            "01n" -> answer = R.drawable.p01n
+            "02d" -> answer = R.drawable.p02d
+            "02n" -> answer = R.drawable.p02n
+            "03d" -> answer = R.drawable.p03d
+            "03n" -> answer = R.drawable.p03n
+            "04d" -> answer = R.drawable.p04d
+            "04n" -> answer = R.drawable.p04n
+            "09d" -> answer = R.drawable.p09d
+            "09n" -> answer = R.drawable.p09n
+            "10d" -> answer = R.drawable.p10d
+            "10n" -> answer = R.drawable.p10n
+            "11d" -> answer = R.drawable.p11d
+            "11n" -> answer = R.drawable.p11n
+            "13d" -> answer = R.drawable.p13d
+            "13n" -> answer = R.drawable.p13n
+            "50d" -> answer = R.drawable.p50d
+            "50n" -> answer = R.drawable.p50n
+        }
+        return answer
+    }
+    private fun chooseWhiteIcon(icon: String): Int {
+        var answer = 0
+        when (icon) {
+            "01d" -> answer = R.drawable.p01dwhite
+            "01n" -> answer = R.drawable.p01nwhite
+            "02d" -> answer = R.drawable.p02dwhite
+            "02n" -> answer = R.drawable.p02nwhite
+            "03d" -> answer = R.drawable.p03dwhite
+            "03n" -> answer = R.drawable.p03nwhite
+            "04d" -> answer = R.drawable.p04dwhite
+            "04n" -> answer = R.drawable.p04nwhite
+            "09d" -> answer = R.drawable.p09dwhite
+            "09n" -> answer = R.drawable.p09nwhite
+            "10d" -> answer = R.drawable.p10dwhite
+            "10n" -> answer = R.drawable.p10nwhite
+            "11d" -> answer = R.drawable.p11dwhite
+            "11n" -> answer = R.drawable.p11nwhite
+            "13d" -> answer = R.drawable.p13dwhite
+            "13n" -> answer = R.drawable.p13nwhite
+            "50d" -> answer = R.drawable.p50dwhite
+            "50n" -> answer = R.drawable.p50nwhite
+        }
+        return answer
+    }
+
      private fun pickColor(sunrise: Int = 0, sunset: Int = 0, timeNow: Int = 0, code: Int): Int {
         var color: Int = R.color.orange
         if (timeNow > sunset || timeNow < sunrise) {
             color = R.color.night
-        } else {
-            when (code / 100) {
-                2 -> color = R.color.thunderstorm
-                3 -> color = R.color.drizzle
-                5 -> color = R.color.rain
-                6 -> color = R.color.darkGrey
-                7 -> color = R.color.atmosphere
-                8 ->  {
-                    color = when(code) {
-                        800 -> R.color.clear
-                        else -> R.color.drizzle
-                    }
+        } else when (code / 100) {
+            2 -> color = R.color.thunderstorm
+            3 -> color = R.color.drizzle
+            5 -> color = R.color.rain
+            6 -> color = R.color.darkGrey
+            7 -> color = R.color.atmosphere
+            8 ->  {
+                color = when(code) {
+                    800 -> R.color.clear
+                    else -> R.color.clouds
                 }
             }
         }
