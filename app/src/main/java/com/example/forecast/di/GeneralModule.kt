@@ -4,12 +4,11 @@ import android.content.Context
 import android.location.Geocoder
 import androidx.room.Room
 import com.example.forecast.model.database.AppDatabase
-import com.example.forecast.model.database.MainPojoClassDao
+import com.example.forecast.model.database.ForecastDao
 import com.example.forecast.model.repository.WeatherRepository
 import com.example.forecast.model.retrofit.RetrofitInterface
 import com.example.forecast.model.suggestions.SuggestionsSource
 import com.example.forecast.util.GeoUtil
-import com.example.forecast.util.LocationProvider
 import dagger.Module
 import dagger.Provides
 import okhttp3.HttpUrl
@@ -29,7 +28,7 @@ class GeneralModule {
 
     @Singleton
     @Provides
-    fun provideDao(database: AppDatabase) : MainPojoClassDao {
+    fun provideDao(database: AppDatabase) : ForecastDao {
         return database.getDao()
     }
 
@@ -56,7 +55,7 @@ class GeneralModule {
 
     @Singleton
     @Provides
-    fun getWeatherRepository(dao: MainPojoClassDao, retrofitInterface: RetrofitInterface): WeatherRepository {
+    fun getWeatherRepository(dao: ForecastDao, retrofitInterface: RetrofitInterface): WeatherRepository {
         return WeatherRepository(dao, retrofitInterface)
     }
 

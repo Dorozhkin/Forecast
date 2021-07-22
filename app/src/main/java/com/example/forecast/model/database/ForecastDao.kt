@@ -6,7 +6,7 @@ import javax.inject.Singleton
 
 @Singleton
 @Dao
-interface MainPojoClassDao {
+interface ForecastDao {
 
     @Query("SELECT * FROM forecast WHERE cityName = :city")
     suspend fun getByName(city: String): Forecast

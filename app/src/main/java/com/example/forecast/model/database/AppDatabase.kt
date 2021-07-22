@@ -9,5 +9,5 @@ import javax.inject.Singleton
 @Database(entities = [Forecast::class], version = 1 )
 public abstract class AppDatabase: RoomDatabase() {
 
-    public abstract fun getDao() : MainPojoClassDao
+    public abstract fun getDao() : ForecastDao
 }

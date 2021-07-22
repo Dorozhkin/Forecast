@@ -1,7 +1,7 @@
 package com.example.forecast.di
 
 import android.content.Context
-import com.example.forecast.model.database.MainPojoClassDao
+import com.example.forecast.model.database.ForecastDao
 import com.example.forecast.model.repository.WeatherRepository
 import com.example.forecast.model.retrofit.RetrofitInterface
 import com.example.forecast.model.suggestions.SuggestionsSource
@@ -17,7 +17,7 @@ interface AppComponent {
 
     fun getContext(): Context
     fun getViewModelFactory(): ViewModelFactory
-    fun getMainPojoClassDao(): MainPojoClassDao
+    fun getMainPojoClassDao(): ForecastDao
     fun getRetrofitInterface(): RetrofitInterface
     fun getWeatherRepository(): WeatherRepository
     fun getGeoUtil(): GeoUtil
